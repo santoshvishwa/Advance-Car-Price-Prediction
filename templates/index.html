@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Cars Price ML Model</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Cars Price Estimator</h2>
+  <form action="{{url_for('predict_api')}}" method="POST">
+    <div class="form-group">
+      <label for="year_model">Car Year Model:</label>
+      <input type="text" class="form-control" id="year_model" placeholder="2006" name="year_model" required="required">
+    </div>
+    <div class="form-group">
+      <label for="mileage">Car Mileage:</label>
+      <input type="text" class="form-control" id="mileage" placeholder="82499.5" name="mileage" required="required">
+    </div>
+    <div class="form-group">
+      <label for="fiscal_power">Fiscal Power:</label>
+        <select class="form-control" id="fiscal_power" name="fiscal_power">
+            
+            <option>3CV</option><option>4CV</option><option>5CV</option><option>6CV</option>
+            <option>7CV</option><option>8CV</option><option>9CV</option><option>10CV</option>
+            <option>11CV</option><option>12CV</option>
+
+        </select>
+    </div>
+    <div class="form-group">
+      <label for="fuel_type">Fuel Type:</label>
+        <select class="form-control" id="fuel_type" name="fuel_type">
+            <option value="Diesel" selected="">Diesel </option>
+			<option value="Essence">Essence </option>
+			<option value="Electrique">Electrique</option>
+			<option value="LPG">LPG</option>
+        </select>
+    </div>
+    <div class="form-group">
+      <label for="mark">Mark:</label>
+        <select class="form-control" id="mark" name="mark">
+            <option value="Renault">Renault </option>
+			<option value="Dacia">Dacia </option>
+			<option value="Peugeot">Peugeot</option>
+			<option value="Volkswagen">Volkswagen</option>
+			<option value="BMW">BMW </option>
+			<option value="Acura">Acura</option>
+            <option value="Bentley">Bentley</option>
+            <option value="Hyundai">Hyundai</option>
+            <option value="Suzuki">Suzuki</option>
+            <option value="Volvo">Volvo</option>
+            <option value="Porsche">Porsche</option>
+            <option value="Mazda">Mazda</option>
+
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Predict</button>
+  </form>
+  <br>
+  <h1><b>{{prediction_text}}</b></h1>
+</div>
+
+</body>
+</html>
